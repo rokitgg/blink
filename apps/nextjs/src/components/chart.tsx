@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 // Extend Window interface to include TradingView
 declare global {
   interface Window {
+    // biome-ignore lint/suspicious/noExplicitAny: tradingview
     TradingView: any;
   }
 }
@@ -31,7 +32,7 @@ export default function Chart() {
 
   // Refs for DOM elements
   const chartContainerRef = useRef<HTMLDivElement>(null);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: tradingview
   const widgetRef = useRef<any>(null);
 
   // Load TradingView script only once
