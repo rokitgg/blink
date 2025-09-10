@@ -1,6 +1,10 @@
 "use client";
 
-import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQueryClient,
+  useSuspenseQuery,
+} from "@tanstack/react-query";
 
 import type { Outputs as RouterOutputs } from "@acme/api/types/outputs";
 import type { Inputs as RouterInputs } from "@acme/api/types/inputs";
@@ -22,7 +26,7 @@ import { useORPC } from "~/lib/context/orpc";
 
 export function CreatePostForm() {
   const orpc = useORPC();
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
   const form = useForm<RouterInputs["posts"]["create"]>({
     defaultValues: {
@@ -113,8 +117,7 @@ export function PostCard(props: {
   post: RouterOutputs["posts"]["find"];
 }) {
   const orpc = useORPC();
-  const queryClient = useQueryClient()
-
+  const queryClient = useQueryClient();
 
   const deletePost = useMutation(
     orpc.posts.delete.mutationOptions({
